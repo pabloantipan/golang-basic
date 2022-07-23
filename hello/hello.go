@@ -28,7 +28,6 @@ func main() {
 
 func reverseWord(word string) string {
 	word = strings.Trim(word, "\r\n")
-	// word = strings.TrimSpace(word)
 	fmt.Println(word)
 	byte_word := []rune(word)
 	for i, j := 0, len(byte_word)-1; i < j; i, j = i+1, j-1 {
@@ -40,13 +39,23 @@ func reverseWord(word string) string {
 
 func isPalindrome(word string) bool {
 	word = strings.Trim(word, "\r\n")
-	fmt.Println(word)
 	byte_word := []rune(word)
 	for i, j := 0, len(byte_word)-1; i < j; i, j = i+1, j-1 {
 		if byte_word[i] != byte_word[j] {
 			return false
 		}
 		byte_word[i], byte_word[j] = byte_word[j], byte_word[i]
+	}
+	return true
+}
+
+func isPalindromeShorter(word string) bool {
+	word = strings.ToLower(strings.Trim(word, "\r\n"))
+	byte_word := []rune(word)
+	for i := 0; i < len(byte_word)-1; i += 1 {
+		if byte_word[i] != byte_word[len(byte_word)-1-i] {
+			return false
+		}
 	}
 	return true
 }
@@ -58,7 +67,7 @@ func askForPalindromeWord() {
 
 	fmt.Println("You have entered word:", word)
 
-	if isPalindrome(word) {
+	if isPalindromeShorter(word) {
 		fmt.Println("Yep, it's a palindrome")
 		return
 	}
