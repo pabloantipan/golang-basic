@@ -4,6 +4,10 @@ import (
 	"go-basic/ui"
 )
 
-func main() {
+func unused() {
 	ui.AskForPalindromeWord()
+}
+
+func main() {
+	ui.ShowMapping()
 }
