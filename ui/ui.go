@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"go-basic/mapping"
 	"go-basic/palindrome"
+	"go-basic/slicing"
+	"go-basic/structs"
 	"go-basic/utils"
 	"os"
 )
@@ -44,4 +46,30 @@ func ShowMapping() {
 	wrongKey := "Josephh"
 	wrongValueFound, isExist2 := example[wrongKey]
 	fmt.Println("\nFound value for a wrong key=", key, ":", wrongValueFound, isExist2)
+}
+
+func ShowStruct() {
+	example := structs.Structing()
+	fmt.Println("Show struct exmaple:", example)
+
+	var exampleTwo structs.Car
+	exampleTwo.Brand = "Ferrari"
+	fmt.Println("Other example:", exampleTwo)
+}
+
+func ShowArray() {
+	array := slicing.Arraying()
+	fmt.Println(array, len(array), cap(array))
+}
+
+func ShowSlice() {
+	slice := slicing.Slicing()
+	fmt.Println(slice[0], slice[:3], slice[2:4], slice[4:])
+
+	slice = append(slice, 7)
+	fmt.Println(slice)
+
+	newSlice := []int{11, 12, 13}
+	slice = append(slice, newSlice...)
+	fmt.Println(slice)
 }

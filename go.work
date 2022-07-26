@@ -6,4 +6,6 @@ use (
 	./palindrome
 	./utils
 	./mapping
+	./structs
+	./slicing
 )

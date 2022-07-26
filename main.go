@@ -6,8 +6,11 @@ import (
 
 func unused() {
 	ui.AskForPalindromeWord()
+	ui.ShowMapping()
+	ui.ShowStruct()
 }
 
 func main() {
-	ui.ShowMapping()
+	ui.ShowArray()
+	ui.ShowSlice()
 }
