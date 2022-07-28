@@ -9,4 +9,5 @@ use (
 	./structs
 	./slicing
 	./interfacing
+	./goroutines
 )

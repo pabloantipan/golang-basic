@@ -3,6 +3,7 @@ package ui
 import (
 	"bufio"
 	"fmt"
+	"go-basic/goroutines"
 	"go-basic/interfacing"
 	"go-basic/mapping"
 	"go-basic/palindrome"
@@ -10,6 +11,7 @@ import (
 	"go-basic/structs"
 	"go-basic/utils"
 	"os"
+	"time"
 )
 
 func AskForPalindromeWord() {
@@ -109,4 +111,10 @@ func ShowInterfacing() {
 	fmt.Println("Area :", interfacing.Calculate(aRectangle))
 
 	fmt.Println(interfacing.ShowInterfaceList()...)
+}
+
+func ShowGoRoutines() {
+	goroutines.SayIt("Hey")
+	go goroutines.SayIt("There!")
+	time.Sleep(time.Second * 1)
 }

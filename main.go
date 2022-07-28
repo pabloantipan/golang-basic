@@ -11,8 +11,10 @@ func unused() {
 	ui.ShowArray()
 	ui.ShowSlice()
 	ui.ShowPointers()
+	ui.ShowInterfacing()
 }
 
 func main() {
-	ui.ShowInterfacing()
+	ui.ShowGoRoutines()
+
 }
