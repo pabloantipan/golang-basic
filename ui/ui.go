@@ -11,6 +11,7 @@ import (
 	"go-basic/structs"
 	"go-basic/utils"
 	"os"
+	"sync"
 	"time"
 )
 
@@ -117,4 +118,24 @@ func ShowGoRoutines() {
 	goroutines.SayIt("Hey")
 	go goroutines.SayIt("There!")
 	time.Sleep(time.Second * 1)
+}
+
+func ShowGoRoutinesTwo() {
+	var waitGroup sync.WaitGroup
+
+	for i := 1; i < 5; i++ {
+		waitGroup.Add(1)
+		i := i
+		go goroutines.DoWork(i, &waitGroup)
+	}
+	waitGroup.Wait()
+}
+
+func ShowGoRoutinesThree() {
+	var waitGroup sync.WaitGroup
+
+	waitGroup.Add(2)
+	go goroutines.DoWork(1, &waitGroup)
+	go goroutines.DoWork(2, &waitGroup)
+	waitGroup.Wait()
 }

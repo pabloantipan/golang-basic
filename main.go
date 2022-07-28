@@ -16,5 +16,7 @@ func unused() {
 
 func main() {
 	ui.ShowGoRoutines()
+	ui.ShowGoRoutinesTwo()
+	ui.ShowGoRoutinesThree()
 
 }
