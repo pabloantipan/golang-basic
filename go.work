@@ -8,4 +8,5 @@ use (
 	./mapping
 	./structs
 	./slicing
+	./interfacing
 )

@@ -8,9 +8,11 @@ func unused() {
 	ui.AskForPalindromeWord()
 	ui.ShowMapping()
 	ui.ShowStruct()
+	ui.ShowArray()
+	ui.ShowSlice()
+	ui.ShowPointers()
 }
 
 func main() {
-	ui.ShowArray()
-	ui.ShowSlice()
+	ui.ShowInterfacing()
 }

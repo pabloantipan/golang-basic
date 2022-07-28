@@ -3,6 +3,7 @@ package ui
 import (
 	"bufio"
 	"fmt"
+	"go-basic/interfacing"
 	"go-basic/mapping"
 	"go-basic/palindrome"
 	"go-basic/slicing"
@@ -72,4 +73,40 @@ func ShowSlice() {
 	newSlice := []int{11, 12, 13}
 	slice = append(slice, newSlice...)
 	fmt.Println(slice)
+}
+
+func ShowPointers() {
+	a := 50
+	b := &a
+	c := *b
+	fmt.Println(a, b, c, &b)
+
+	*b = 100
+	fmt.Println(a)
+
+	myPc := structs.Pc{
+		Ram:   16,
+		Disk:  200,
+		Brand: "Acer",
+	}
+	fmt.Println(myPc)
+	fmt.Println(myPc.PingPc())
+
+	fmt.Println(myPc)
+	myPc.DuplicateRAM()
+	fmt.Println(myPc)
+	myPc.DuplicateRAM()
+	fmt.Println(myPc)
+	myPc.DuplicateRAM()
+	fmt.Println(myPc)
+}
+
+func ShowInterfacing() {
+	aSquare := interfacing.Square{Base: 2}
+	aRectangle := interfacing.Rectangle{Base: 3, Height: 2}
+
+	fmt.Println("Area :", interfacing.Calculate(aSquare))
+	fmt.Println("Area :", interfacing.Calculate(aRectangle))
+
+	fmt.Println(interfacing.ShowInterfaceList()...)
 }
