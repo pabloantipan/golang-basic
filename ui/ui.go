@@ -142,6 +142,6 @@ func ShowGoRoutinesThree() {
 }
 
 func ShowChanneling() {
-	length, capacity := channeling.Channeling()
-	fmt.Println(length, capacity)
+	channel := channeling.Channeling()
+	fmt.Println(len(channel), cap(channel))
 }

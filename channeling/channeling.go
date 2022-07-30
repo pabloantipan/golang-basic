@@ -1,6 +1,6 @@
 package channeling
 
-func Channeling() (int, int) {
+func Channeling() <-chan string {
 	channel := make(chan string, 2)
 	channel <- "Message 1"
 	channel <- "Message 2"
@@ -8,5 +8,5 @@ func Channeling() (int, int) {
 	// Range and close
 	close(channel)
 
-	return len(channel), cap(channel)
+	return channel
 }
