@@ -1,12 +1,28 @@
 package channeling
 
-func Channeling() <-chan string {
-	channel := make(chan string, 2)
-	channel <- "Message 1"
-	channel <- "Message 2"
+type EmailChannels struct {
+	EmailOne chan string
+	EmailTwo chan string
+}
 
-	// Range and close
-	close(channel)
+func (emailChannels *EmailChannels) Channeling() {
+	emailChannels.EmailOne = make(chan string)
+	emailChannels.EmailTwo = make(chan string)
+}
 
-	return channel
+func message(text string, channel chan<- string) {
+	channel <- text
+}
+
+func (emailChannels *EmailChannels) MessageOnOne(text string) {
+	message(text, emailChannels.EmailOne)
+}
+
+func (emailChannels *EmailChannels) MessageOnTwo(text string) {
+	message(text, emailChannels.EmailOne)
+}
+
+func (emailChannels *EmailChannels) CloseBoth() {
+	close(emailChannels.EmailOne)
+	close(emailChannels.EmailTwo)
 }

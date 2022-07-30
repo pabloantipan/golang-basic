@@ -142,6 +142,22 @@ func ShowGoRoutinesThree() {
 }
 
 func ShowChanneling() {
-	channel := channeling.Channeling()
-	fmt.Println(len(channel), cap(channel))
+	var emailChannels channeling.EmailChannels
+	emailChannels.Channeling()
+
+	fmt.Println(cap(emailChannels.EmailOne), len(emailChannels.EmailOne))
+
+	go emailChannels.MessageOnOne("example1@email.com")
+	go emailChannels.MessageOnTwo("example2@email.com")
+
+	for i := 0; i < 2; i++ {
+		select {
+		case messageOne := <-emailChannels.EmailOne:
+			fmt.Println("Email received from channel one:", messageOne)
+		case messageTwo := <-emailChannels.EmailTwo:
+			fmt.Println("Email received from channel two:", messageTwo)
+		}
+	}
+
+	emailChannels.CloseBoth()
 }
