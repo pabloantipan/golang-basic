@@ -10,4 +10,5 @@ use (
 	./slicing
 	./interfacing
 	./goroutines
+	./channeling
 )

@@ -3,6 +3,7 @@ package ui
 import (
 	"bufio"
 	"fmt"
+	"go-basic/channeling"
 	"go-basic/goroutines"
 	"go-basic/interfacing"
 	"go-basic/mapping"
@@ -138,4 +139,9 @@ func ShowGoRoutinesThree() {
 	go goroutines.DoWork(1, &waitGroup)
 	go goroutines.DoWork(2, &waitGroup)
 	waitGroup.Wait()
+}
+
+func ShowChanneling() {
+	length, capacity := channeling.Channeling()
+	fmt.Println(length, capacity)
 }

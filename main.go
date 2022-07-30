@@ -12,11 +12,11 @@ func unused() {
 	ui.ShowSlice()
 	ui.ShowPointers()
 	ui.ShowInterfacing()
-}
-
-func main() {
 	ui.ShowGoRoutines()
 	ui.ShowGoRoutinesTwo()
 	ui.ShowGoRoutinesThree()
+}
 
+func main() {
+	ui.ShowChanneling()
 }
